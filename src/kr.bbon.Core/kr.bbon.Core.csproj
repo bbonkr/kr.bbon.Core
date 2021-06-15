@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+        <PackageId>kr.bbon.Core</PackageId>
+        <Title>kr.bbon.Core</Title>
+        <Version>1.0.0</Version>
+        <Authors>Pon Cheol Ku (bbon@live.com)</Authors>
+        <Company>bbon.kr</Company>
+        <Copyright>bbon.kr. All rights reserved.</Copyright>
+        <Description>Helper for .NET</Description>
+        <PackageTags>dotnet aspnet aspnetcore kr.bbon bbon bbon.kr</PackageTags>
+        <RepositoryUrl>https://github.com/bbonkr/kr.bbon.Core.git</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+        <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+        <PackageIcon>icon.png</PackageIcon>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <Compile Remove="Images\**" />
+        <EmbeddedResource Remove="Images\**" />
+        <None Remove="Images\**" />
+        <None Include="Images/icon.png" Pack="true" PackagePath="/" />
+    </ItemGroup>
+
+</Project>
