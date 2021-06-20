@@ -2,15 +2,20 @@
 
 namespace kr.bbon.Core
 {
+    /// <summary>
+    /// Exception with data
+    /// </summary>
     public abstract class SomethingWrongException : Exception
     {
         public SomethingWrongException(string message) : base(message) { }
 
         public abstract object GetDetails();
-
-        public abstract T GetDetails<T>() where T : class;
     }
 
+    /// <summary>
+    /// Exception with data
+    /// </summary>
+    /// <typeparam name="TDetails"></typeparam>
     public class SomethingWrongException<TDetails> : SomethingWrongException where TDetails : class
     {
         public SomethingWrongException(string message, TDetails details) : base(message)
@@ -23,10 +28,6 @@ namespace kr.bbon.Core
         public override object GetDetails()
         {
             return Details;
-        }
-        public override T GetDetails<T>() where T:class
-        {
-            return (T)GetDetails();
         }
     }
 }
