@@ -20,8 +20,6 @@ namespace kr.bbon.Core
         public HttpStatusCode StatusCode { get; init; }
 
         public abstract object GetDetails();
-
-        public abstract T GetDetails<T>() where T : class;
     }
 
     /// <summary>
@@ -44,10 +42,16 @@ namespace kr.bbon.Core
         {
             return Details;
         }
+    }
 
-        public override T GetDetails<T>() where T : class
+    /// <summary>
+    /// Exception with http status code
+    /// </summary>
+    public class DefaultHttpStatusException : HttpStatusException<object>
+    {
+        public DefaultHttpStatusException(HttpStatusCode httpStatusCode, string message = "", object details = null) 
+            : base(httpStatusCode, message, details)
         {
-            return (T)GetDetails();
         }
     }
 }
