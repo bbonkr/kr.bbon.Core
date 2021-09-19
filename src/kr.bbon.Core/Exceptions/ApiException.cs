@@ -18,11 +18,7 @@ namespace kr.bbon.Core
         {
             StatusCode = statusCode;
             HttpStatusCode = (HttpStatusCode)statusCode;
-            Error = error ?? new ErrorModel
-            {
-                Code = $"{(HttpStatusCode)statusCode}",
-                Message = message,
-            };
+            Error = error ?? new ErrorModel(message: message, code: $"{(HttpStatusCode)statusCode}");
         }
 
         public ApiException(HttpStatusCode statusCode, string message, ErrorModel error)
