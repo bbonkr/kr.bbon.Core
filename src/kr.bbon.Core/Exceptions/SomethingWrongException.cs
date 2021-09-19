@@ -5,6 +5,7 @@ namespace kr.bbon.Core
     /// <summary>
     /// Exception with data
     /// </summary>
+    [Obsolete("Consider to use ApiException instead of.")]
     public abstract class SomethingWrongException : Exception
     {
         public SomethingWrongException(string message) : base(message) { }
@@ -16,6 +17,7 @@ namespace kr.bbon.Core
     /// Exception with data
     /// </summary>
     /// <typeparam name="TDetails"></typeparam>
+    [Obsolete("Consider to use ApiException instead of.")]
     public class SomethingWrongException<TDetails> : SomethingWrongException where TDetails : class
     {
         public SomethingWrongException(string message, TDetails details) : base(message)

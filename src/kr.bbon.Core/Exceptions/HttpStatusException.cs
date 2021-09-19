@@ -7,6 +7,7 @@ namespace kr.bbon.Core
     /// <summary>
     /// Exception with http status code and message
     /// </summary>
+    [Obsolete("Consider to use ApiException instead of.")]
     public abstract class HttpStatusException : Exception
     {
         public HttpStatusException(HttpStatusCode httpStatusCode, string message)
@@ -14,6 +15,7 @@ namespace kr.bbon.Core
         {
             this.StatusCode = httpStatusCode;
         }
+
         public HttpStatusException(int httpStatusCode, string message)
             : this((HttpStatusCode)httpStatusCode, message) { }
 
@@ -25,6 +27,7 @@ namespace kr.bbon.Core
     /// <summary>
     /// Exception with http status code, message, detail information
     /// </summary>
+    [Obsolete("Consider to use ApiException instead of.")]
     public class HttpStatusException<TDetails> : HttpStatusException where TDetails : class
     {
         public HttpStatusException(HttpStatusCode httpStatusCode, string message, TDetails details)
@@ -47,6 +50,7 @@ namespace kr.bbon.Core
     /// <summary>
     /// Exception with http status code
     /// </summary>
+    [Obsolete("Consider to use ApiException instead of.")]
     public class DefaultHttpStatusException : HttpStatusException<object>
     {
         public DefaultHttpStatusException(HttpStatusCode httpStatusCode, string message = "", object details = null) 
