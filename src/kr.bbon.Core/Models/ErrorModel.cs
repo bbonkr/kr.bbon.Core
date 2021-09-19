@@ -5,19 +5,20 @@ namespace kr.bbon.Core.Models
 {
     public class ErrorModel
     {
-        public ErrorModel() { }
-
-        public ErrorModel(string message, string code = null, IList<ErrorModel> innerErrors = null)
+        public ErrorModel(string message, string code = default, string reference = default, IList<ErrorModel> innerErrors = default)
         {
             Message = message;
             Code = code;
+            Reference = reference;
             InnerErrors = innerErrors ?? new List<ErrorModel>();
         }
 
-        public string Code { get; set; }
+        public string Code { get; init; }
 
-        public string Message { get; set; }
+        public string Message { get; init; }
 
-        public IList<ErrorModel> InnerErrors { get; set; } = new List<ErrorModel>();
+        public string Reference { get; init; }
+
+        public IList<ErrorModel> InnerErrors { get; init; } = new List<ErrorModel>();
     }
 }
