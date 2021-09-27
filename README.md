@@ -8,15 +8,36 @@
 
 ## 🌈 Namespace
 
-### kr.bbon.Core
+### kr.bbon.Core 네임스페이스
 
 기본 네임스페이스로 kr.bbon.Core 를 사용합니다.
+
+### kr.bbon.Core.Converters 네임스페이스
+
+값 변환을 위한 기능을 제공하는 네임스페이스입니다.
 
 ## 🎯 Features
 
 ### Exception classes
 
+#### ApiException class
+
+API 예외를 표현하기 위해 사용됩니다.
+
+```csharp
+public Task SomeFeatureAsync()
+{
+    if(NotValid){
+        var model = new ErrorModel("It's invalid message");
+        throw new ApiException(400, model);
+    }
+    // ...
+}
+```
+
 #### HttpStatusException class
+
+> ApiException class 를 사용하십시오.
 
 HTTP 예외를 표현하기 위해 사용됩니다.
 
@@ -38,6 +59,8 @@ catch(Exception ex)
 
 #### HttpStatusException<TDeatails> class
 
+> ApiException class 를 사용하십시오.
+
 HTTP 예외와 상세 정보를 표현하기 위해 사용됩니다.
 
 ```csharp
@@ -49,6 +72,8 @@ throw new HttpStatusException(HttpStatusCode.BadRequest, new SomeDetails
 ```
 
 #### SomethingWrongException
+
+> ApiException class 를 사용하십시오.
 
 사용자 정의 예외를 표현하기 위해 사용합니다.
 
@@ -69,6 +94,8 @@ catch(Exception ex)
 ```
 
 #### SomethingWrongException<TDetails>
+
+> ApiException class 를 사용하십시오.
 
 사용자 정의 예외와 상세 정보를 표현하기 위해 사용합니다.
 
@@ -103,3 +130,26 @@ var defaultOptions = new JsonSerializerOptions
     PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
 };
 ```
+
+### kr.bbon.Core.Converters namespace
+
+#### JavascriptDateConverter class
+
+##### ToDateTimeOffset method
+
+자바스크립트 밀리초 값을 DateTimeOffset 으로 변환합니다.
+
+##### ToJavascriptDateMilliseconds method
+
+DateTimeOffset 값을 자바스크립트 밀리초 값으로 변환합니다.
+
+```csharp
+JavascriptDateConverter converter = new JavascriptDateConverter();
+var javascriptDateValue = 1624165031491;
+var datetimeOffsetValue = converter.ToDateTimeOffset(javascriptDateValue);
+var milliseconds = converter.ToJavascriptDateMilliseconds(datetimeOffsetValue);
+
+Assert.Equal(javascriptDateValue, milliseconds.Value);
+```
+
+
