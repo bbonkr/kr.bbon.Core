@@ -19,7 +19,7 @@ namespace kr.bbon.Core
         public HttpStatusException(int httpStatusCode, string message)
             : this((HttpStatusCode)httpStatusCode, message) { }
 
-        public HttpStatusCode StatusCode { get; init; }
+        public HttpStatusCode StatusCode { get; private set; }
 
         public abstract object GetDetails();
     }
@@ -39,7 +39,7 @@ namespace kr.bbon.Core
         public HttpStatusException(int httpStatusCode, string message, TDetails details)
             : this((HttpStatusCode)httpStatusCode, message, details) { }
 
-        public TDetails Details { get; init; }
+        public TDetails Details { get; private set; }
 
         public override object GetDetails()
         {

@@ -25,7 +25,7 @@ namespace kr.bbon.Core
             this.Details = details;
         }
 
-        public TDetails Details { get; init; }
+        public TDetails Details { get; private set; }
 
         public override object GetDetails()
         {
