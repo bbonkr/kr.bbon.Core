@@ -153,3 +153,26 @@ Assert.Equal(javascriptDateValue, milliseconds.Value);
 ```
 
 
+### kr.bbon.Core.Reflection namespace 
+
+### ReflectionHelper class
+
+#### CollectAssembly method
+
+현재 AppDomain 의 어셈블리중 입력된 조건을 만족하는 어셈블리 목록을 수집합니다.
+
+```csharp
+var predicte = new Func<Type, bool>(t => t.Name == nameof(ApiException));
+
+var assemblies = ReflectionHelper.CollectAssembly(predicte);
+```
+
+#### CollectTypes method
+
+현재 AppDomain 의 타입중 조건을 만족하는 타입 목록을 수집합니다.
+
+```csharp
+var predicte = new Func<Type, bool>(t => t.Name == nameof(ApiException));
+
+var types = ReflectionHelper.CollectTypes(predicte);
+```

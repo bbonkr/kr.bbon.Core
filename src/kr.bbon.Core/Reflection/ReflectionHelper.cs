@@ -13,9 +13,9 @@ namespace kr.bbon.Core.Reflection
         /// </summary>
         /// <param name="predicate"></param>
         /// <returns></returns>
-        public static IEnumerable<Assembly> CollectAssemblty(Func<Type, bool> predicate)
+        public static IEnumerable<Assembly> CollectAssembly(Func<Type, bool> predicate)
         {
-            return CollectAssemblty(predicate);
+            return CollectAssembly(predicate, null);
         }
 
         /// <summary>
@@ -23,12 +23,12 @@ namespace kr.bbon.Core.Reflection
         /// </summary>
         /// <param name="predicate"></param>
         /// <returns></returns>
-        public static IEnumerable<Assembly> CollectAssemblty(Func<Type, int, bool> predicate)
+        public static IEnumerable<Assembly> CollectAssembly(Func<Type, int, bool> predicate)
         {
-            return CollectAssemblty(predicate);
+            return CollectAssembly(null,predicate);
         }
 
-        private static IEnumerable<Assembly> CollectAssemblty(Func<Type, bool> predicate = null, Func<Type, int, bool> predicateWithIndex = null)
+        private static IEnumerable<Assembly> CollectAssembly(Func<Type, bool> predicate = null, Func<Type, int, bool> predicateWithIndex = null)
 
         {
             if (predicate == null && predicateWithIndex == null)
@@ -40,13 +40,10 @@ namespace kr.bbon.Core.Reflection
 
             var entityTypeConfigurations = new List<Assembly>();
 
-            var allAssembly = AppDomain.CurrentDomain.GetAssemblies();
+            var allAssembly = AppDomain.CurrentDomain.GetAssemblies().Where(a => !a.IsDynamic);
 
             foreach (var assembly in allAssembly)
             {
-                // Does not support
-                if (assembly.IsDynamic) { continue; }
-
                 var exportedTypes = assembly
                     .GetExportedTypes()
                     .Where(condition);
@@ -65,7 +62,7 @@ namespace kr.bbon.Core.Reflection
         /// <returns></returns>
         public static IEnumerable<Type> CollectTypes(Func<Type, bool> predicate)
         {
-            return CollectTypes(predicate: predicate);
+            return CollectTypes(predicate, null);
         }
 
         /// <summary>
@@ -75,7 +72,7 @@ namespace kr.bbon.Core.Reflection
         /// <returns></returns>
         public static IEnumerable<Type> CollectTypes(Func<Type, int, bool> predicate)
         {
-            return CollectTypes(predicateWithIndex: predicate);
+            return CollectTypes(null, predicate);
         }
 
         private static IEnumerable<Type> CollectTypes(Func<Type, bool> predicate = null, Func<Type, int, bool> predicateWithIndex = null)
@@ -85,15 +82,12 @@ namespace kr.bbon.Core.Reflection
                 throw new ArgumentNullException("Predicate must be set. Predicate should describe what type includes.");
             }
 
-            var allAssembly = AppDomain.CurrentDomain.GetAssemblies();
+            var allAssembly = AppDomain.CurrentDomain.GetAssemblies().Where(a => !a.IsDynamic);
 
             var condition = predicateWithIndex ?? new Func<Type, int, bool>((t, i) => predicate(t));
 
             foreach (var assembly in allAssembly)
             {
-                // Does not support
-                if (assembly.IsDynamic) { continue; }
-
                 var foundTypes = assembly
                     .GetExportedTypes()
                     .Where(condition);
