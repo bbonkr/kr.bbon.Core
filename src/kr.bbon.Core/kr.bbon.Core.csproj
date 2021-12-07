@@ -4,7 +4,7 @@
         <TargetFrameworks>netstandard2.0;net5.0;net6.0</TargetFrameworks>
         <PackageId>kr.bbon.Core</PackageId>
         <Title>kr.bbon.Core</Title>
-        <Version>1.3.0</Version>
+        <Version>1.4.0</Version>
         <Authors>Pon Cheol Ku (bbon@live.com)</Authors>
         <Company>bbon.kr</Company>
         <Copyright>bbon.kr. All rights reserved.</Copyright>
