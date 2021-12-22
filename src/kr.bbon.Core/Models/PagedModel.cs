@@ -37,7 +37,7 @@ namespace kr.bbon.Core.Models
         bool HasNextPage { get; }
 
         /// <summary>
-        /// has precious page
+        /// has previous page
         /// </summary>
         bool HasPreviousPage { get; }
     }
