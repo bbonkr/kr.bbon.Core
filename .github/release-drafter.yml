@@ -1,5 +1,6 @@
 name-template: 'v$RESOLVED_VERSION 🌈'
 tag-template: 'v$RESOLVED_VERSION'
+version-template: '$COMPLETE'
 categories:
   - title: '🚀 Features'
     labels: 
@@ -15,8 +16,7 @@ categories:
       - 'chore'
       - 'doc'
       - 'documentation'
-      - 'modifications'
-      - 'refactoring'
+      - 'Modifications'
 change-template: '- $TITLE @$AUTHOR (#$NUMBER)'
 exclude-labels:
   - 'skip-changelog'
@@ -35,4 +35,3 @@ template: |
   ## Changes
   
   $CHANGES
-  
