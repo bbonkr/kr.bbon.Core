@@ -1,6 +1,6 @@
 # kr.bbon.Core Package
 
-[![](https://img.shields.io/nuget/v/kr.bbon.Core)](https://www.nuget.org/packages/kr.bbon.Core) [![](https://img.shields.io/nuget/dt/kr.bbon.Core)](https://www.nuget.org/packages/kr.bbon.Core) [![publish to nuget](https://github.com/bbonkr/kr.bbon.Core/actions/workflows/dotnet.yml/badge.svg)](https://github.com/bbonkr/kr.bbon.Core/actions/workflows/dotnet.yml)
+[![](https://img.shields.io/nuget/v/kr.bbon.Core)](https://www.nuget.org/packages/kr.bbon.Core) [![](https://img.shields.io/nuget/dt/kr.bbon.Core)](https://www.nuget.org/packages/kr.bbon.Core) [![publish to nuget](https://github.com/bbonkr/kr.bbon.Core/actions/workflows/build-tag.yaml/badge.svg)](https://github.com/bbonkr/kr.bbon.Core/actions/workflows/build-tag.yaml)
 
 ## 📢 Overview
 
