@@ -29,7 +29,7 @@ jobs:
         uses: bbonkr/get-version-action@v1.0.1
         id: get_version
         with:
-          project: ${{ secrets.PROJECT }}
+          project: src/kr.bbon.Core/kr.bbon.Core.csproj
 
       - name: Check git tag 
         uses: bbonkr/git-tag-check-action@v1.0.5

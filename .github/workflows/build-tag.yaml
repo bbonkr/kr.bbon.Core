@@ -26,6 +26,7 @@ jobs:
         id: get_version
         with:
           project: src/kr.bbon.Core/kr.bbon.Core.csproj
+
       - name: Check git tag 
         uses: bbonkr/git-tag-check-action@v1.0.5
         id: git_tag_check
