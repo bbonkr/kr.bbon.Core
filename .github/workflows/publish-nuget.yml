@@ -5,8 +5,8 @@ on:
     types: [published]
 
 env:
-  TARGET_PROJECT_PATH: src/kr.bbon.EntityFrameworkCore.Extensions/
-  TARGET_PROJECT_FILE: kr.bbon.EntityFrameworkCore.Extensions.csproj
+  TARGET_PROJECT_PATH: src/kr.bbon.Core/
+  TARGET_PROJECT_FILE: kr.bbon.Core.csproj
 
 jobs:
   publish:
