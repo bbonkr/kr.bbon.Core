@@ -4,7 +4,7 @@ using System.Text;
 
 namespace kr.bbon.Core.Models
 {
-    public interface IPagedModel<TModel>
+    public interface IPagedModel<out TModel> where TModel : class
     {
         /// <summary>
         /// Current page
@@ -43,12 +43,14 @@ namespace kr.bbon.Core.Models
     }
 
 
-    public class PagedModel<TModel> : IPagedModel<TModel>
+    public class PagedModel<TModel> : IPagedModel<TModel> where TModel : class
     {
 #if NET5_0_OR_GREATER
         public PagedModel() { }
 #else
-        private PagedModel() { }
+        private PagedModel()
+        {
+        }
 #endif
 
         public PagedModel(int currentPage, int limit, int totalItems, int totalPages, IEnumerable<TModel> items)
@@ -64,9 +66,9 @@ namespace kr.bbon.Core.Models
         public int CurrentPage
         {
             get;
-#if NET5_0_OR_GREATER            
+#if NET5_0_OR_GREATER
             init;
-#endif        
+#endif
         }
 
         /// <inheritdoc />
@@ -75,7 +77,7 @@ namespace kr.bbon.Core.Models
             get;
 #if NET5_0_OR_GREATER
             init;
-#endif        
+#endif
         }
 
         /// <inheritdoc />
@@ -84,7 +86,7 @@ namespace kr.bbon.Core.Models
             get;
 #if NET5_0_OR_GREATER
             init;
-#endif        
+#endif
         }
 
         /// <inheritdoc />
@@ -93,7 +95,7 @@ namespace kr.bbon.Core.Models
             get;
 #if NET5_0_OR_GREATER
             init;
-#endif        
+#endif
         }
 
         /// <inheritdoc />
@@ -102,13 +104,19 @@ namespace kr.bbon.Core.Models
             get;
 #if NET5_0_OR_GREATER
             init;
-#endif        
+#endif
         }
 
         /// <inheritdoc />
-        public bool HasNextPage { get => CurrentPage < TotalPages; }
+        public bool HasNextPage
+        {
+            get => CurrentPage < TotalPages;
+        }
 
         /// <inheritdoc />
-        public bool HasPreviousPage { get => CurrentPage > 1; }
+        public bool HasPreviousPage
+        {
+            get => CurrentPage > 1;
+        }
     }
 }
