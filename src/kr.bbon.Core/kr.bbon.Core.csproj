@@ -4,7 +4,7 @@
         <TargetFrameworks>netstandard2.0;net5.0;net6.0</TargetFrameworks>
         <PackageId>kr.bbon.Core</PackageId>
         <Title>kr.bbon.Core</Title>
-        <Version>1.4.3</Version>
+        <Version>1.4.4</Version>
         <Authors>Pon Cheol Ku (bbon@live.com)</Authors>
         <Company>bbon.kr</Company>
         <Copyright>bbon.kr. All rights reserved.</Copyright>
@@ -18,11 +18,8 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <Compile Remove="Assets\**" />
-        <EmbeddedResource Remove="Assets\**" />
-        <None Remove="Assets\**" />
-        <None Include="Assets\icon.png" Pack="true" PackagePath="/" />
-        <None Include="..\..\README.md" Pack="true" PackagePath="/" />
+        <None Include="../../assets/icon.png" Pack="true" PackagePath="/" />
+        <None Include="../../README.md" Pack="true" PackagePath="/" />
     </ItemGroup>
 
     <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
