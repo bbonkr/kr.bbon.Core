@@ -44,23 +44,24 @@ jobs:
           github_token: ${{ secrets.GH_TOKEN }}
           tag: 'v${{ steps.get_version.outputs.version }}'
 
-      - name: Pack 
+      - name: publish kr.bbon.Data.Abstractions
+        id: publish_nuget
+        if: ${{ steps.git_tag_check.outputs.tag != '' }}
+        working-directory: src/kr.bbon.Core/
         run: |
-          dotnet pack "${{ env.TARGET_PROJECT_PATH }}${{ env.TARGET_PROJECT_FILE }}" -c Release
-
-      - name: Publish 
-        run: |
-          dotnet nuget push "${{ env.TARGET_PROJECT_PATH }}bin/Release/*.nupkg" --api-key "${{ secrets.NUGET_API_KEY }}" --source https://api.nuget.org/v3/index.json --skip-duplicate
+          dotnet pack -c Release -o .
+          dotnet nuget push *.nupkg -k ${{ secrets.NUGET_API_KEY }} -s https://api.nuget.org/v3/index.json --skip-duplicate
 
       - name: Notify to slack
         uses: 8398a7/action-slack@v3
+        if: always() # Pick up events even if the job fails or is canceled. 
         with:
           job_name: publish
           status: ${{ job.status }}
           fields: repo,message,commit,author,action,eventName,ref,workflow,job,took,pullRequest # selectable (default: repo,message)
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-        if: always() # Pick up events even if the job fails or is canceled. 
+          MATRIX_CONTEXT:  ${{ toJson(matrix) }}
 
       - name: Notify to Microsoft Teams
         uses: skitionek/notify-microsoft-teams@master
