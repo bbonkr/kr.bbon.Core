@@ -1,33 +1,30 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
-
-    <PropertyGroup>
-        <TargetFrameworks>netstandard2.0;net5.0;net6.0</TargetFrameworks>
-        <PackageId>kr.bbon.Core</PackageId>
-        <Title>kr.bbon.Core</Title>
-        <Version>1.4.6</Version>
-        <Authors>Pon Cheol Ku (bbon@live.com)</Authors>
-        <Company>bbon.kr</Company>
-        <Copyright>bbon.kr. All rights reserved.</Copyright>
-        <Description>Helper for .NET</Description>
-        <PackageTags>dotnet aspnet aspnetcore kr.bbon bbon bbon.kr</PackageTags>
-        <RepositoryUrl>https://github.com/bbonkr/kr.bbon.Core</RepositoryUrl>
-        <RepositoryType>git</RepositoryType>
-        <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-        <PackageIcon>icon.png</PackageIcon>
-        <PackageReadmeFile>README.md</PackageReadmeFile>
-    </PropertyGroup>
-
-    <ItemGroup>
-        <None Include="../../assets/icon.png" Pack="true" PackagePath="/" />
-        <None Include="../../README.md" Pack="true" PackagePath="/" />
-    </ItemGroup>
-
-    <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
-        <PackageReference Include="System.Text.Json" Version="6.0.*">
-            <IncludeAssets>all</IncludeAssets>
-            <ExcludeAssets>contentFiles</ExcludeAssets>
-            <PrivateAssets>contentFiles;analyzers</PrivateAssets>
-        </PackageReference>
-    </ItemGroup>
-
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFrameworks>netstandard2.0;net5.0;net6.0</TargetFrameworks>
+		<PackageId>kr.bbon.Core</PackageId>
+		<Title>kr.bbon.Core</Title>
+		<Version>1.4.7</Version>
+		<Authors>Pon Cheol Ku (bbon@live.com)</Authors>
+		<Company>bbon.kr</Company>
+		<Copyright>bbon.kr. All rights reserved.</Copyright>
+		<Description>Helper for .NET</Description>
+		<PackageTags>dotnet aspnet aspnetcore kr.bbon bbon bbon.kr</PackageTags>
+		<RepositoryUrl>https://github.com/bbonkr/kr.bbon.Core</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+		<PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+		<PackageIcon>icon.png</PackageIcon>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+	</PropertyGroup>
+	<ItemGroup>
+		<None Include="../../assets/icon.png" Pack="true" PackagePath="/" />
+		<None Include="../../README.md" Pack="true" PackagePath="/" />
+	</ItemGroup>
+	<ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
+		<PackageReference Include="System.Text.Json" Version="6.*">
+			<IncludeAssets>all</IncludeAssets>
+			<ExcludeAssets>contentFiles</ExcludeAssets>
+			<PrivateAssets>contentFiles;analyzers</PrivateAssets>
+		</PackageReference>
+	</ItemGroup>
 </Project>

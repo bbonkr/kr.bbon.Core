@@ -1,21 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace kr.bbon.Core.Models
 {
     public class ErrorModel
     {
-#if NET5_0_OR_GREATER
-        private ErrorModel()
-        {
+        //#if NET5_0_OR_GREATER
+        //        private ErrorModel()
+        //        {
 
-        }
-#else
+        //        }
+        //#else
+        //#endif
         public ErrorModel()
         {
 
         }
-#endif
 
         public ErrorModel(string Message, string Code = default, string Reference = default, IEnumerable<ErrorModel> InnerErrors = default)
         {
@@ -25,35 +26,13 @@ namespace kr.bbon.Core.Models
             this.InnerErrors = InnerErrors;
         }
 
-        public string Message
-        {
-            get;
-#if NET5_0_OR_GREATER
-            init;
-#endif
-        }
-        public string Code
-        {
-            get;
-#if NET5_0_OR_GREATER
-            init;
-#endif
+        public string Message { get; set; }
 
-        }
-        public string Reference
-        {
-            get;
-#if NET5_0_OR_GREATER
-            init;
-#endif        
-        }
-        public IEnumerable<ErrorModel> InnerErrors
-        {
-            get;
-#if NET5_0_OR_GREATER
-            init;
-#endif        
-        }
+        public string Code { get; set; }
+
+        public string Reference { get; set; }
+
+        public IEnumerable<ErrorModel> InnerErrors { get; set; } = Enumerable.Empty<ErrorModel>();
     }
 }
 
