@@ -18,7 +18,7 @@ namespace kr.bbon.Core
         /// <returns>json string</returns>
         public static string ToJson<T>(this T obj, JsonSerializerOptions options = default)
         {
-            if(obj == null)
+            if (obj == null)
             {
                 return string.Empty;
             }
@@ -28,6 +28,7 @@ namespace kr.bbon.Core
                 WriteIndented = true,
                 Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping,
                 PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+                IgnoreReadOnlyFields = true,
             };
 
             return JsonSerializer.Serialize<T>(obj, actualOptions);
