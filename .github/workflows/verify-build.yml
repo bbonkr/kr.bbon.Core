@@ -1,4 +1,5 @@
 name: 'Verify to Build'
+run-name: 'Verify to Build'
 
 on:
   pull_request:
