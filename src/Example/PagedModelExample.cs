@@ -1,6 +1,7 @@
 using System.Text.Encodings.Web;
 using System.Text.Json;
-using kr.bbon.Core;
+
+using kr.bbon.Core.Extensions;
 
 namespace Example;
 

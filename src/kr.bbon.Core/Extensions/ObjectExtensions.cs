@@ -1,7 +1,7 @@
 ﻿/**
- * extensions of Object type 
- */
-namespace kr.bbon.Core
+* extensions of Object type 
+*/
+namespace kr.bbon.Core.Extensions
 {
     using System;
     using System.Text.Encodings.Web;
@@ -31,7 +31,8 @@ namespace kr.bbon.Core
                 IgnoreReadOnlyFields = true,
             };
 
-            return JsonSerializer.Serialize<T>(obj, actualOptions);
+            return JsonSerializer.Serialize(obj, actualOptions);
         }
     }
 }
+

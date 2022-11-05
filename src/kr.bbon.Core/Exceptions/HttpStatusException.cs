@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Net;
 
-
-namespace kr.bbon.Core
+namespace kr.bbon.Core.Exceptions
 {
     /// <summary>
     /// Exception with http status code and message
@@ -13,7 +12,7 @@ namespace kr.bbon.Core
         public HttpStatusException(HttpStatusCode httpStatusCode, string message)
             : base(message)
         {
-            this.StatusCode = httpStatusCode;
+            StatusCode = httpStatusCode;
         }
 
         public HttpStatusException(int httpStatusCode, string message)
@@ -33,7 +32,7 @@ namespace kr.bbon.Core
         public HttpStatusException(HttpStatusCode httpStatusCode, string message, TDetails details)
             : base(httpStatusCode, message)
         {
-            this.Details = details;
+            Details = details;
         }
 
         public HttpStatusException(int httpStatusCode, string message, TDetails details)
@@ -53,7 +52,7 @@ namespace kr.bbon.Core
     [Obsolete("Consider to use ApiException instead of.")]
     public class DefaultHttpStatusException : HttpStatusException<object>
     {
-        public DefaultHttpStatusException(HttpStatusCode httpStatusCode, string message = "", object details = null) 
+        public DefaultHttpStatusException(HttpStatusCode httpStatusCode, string message = "", object details = null)
             : base(httpStatusCode, message, details)
         {
         }

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace kr.bbon.Core
+namespace kr.bbon.Core.Exceptions
 {
     /// <summary>
     /// Exception with data
@@ -22,7 +22,7 @@ namespace kr.bbon.Core
     {
         public SomethingWrongException(string message, TDetails details) : base(message)
         {
-            this.Details = details;
+            Details = details;
         }
 
         public TDetails Details { get; private set; }

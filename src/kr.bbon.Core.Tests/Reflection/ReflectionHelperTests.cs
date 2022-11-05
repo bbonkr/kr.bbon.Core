@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Linq;
+
+using kr.bbon.Core.Exceptions;
 using kr.bbon.Core.Reflection;
+
 using Xunit;
 
 namespace kr.bbon.Core.Tests.Reflection

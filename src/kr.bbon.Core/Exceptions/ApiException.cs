@@ -1,8 +1,9 @@
 ﻿using kr.bbon.Core.Models;
+
 using System;
 using System.Net;
 
-namespace kr.bbon.Core
+namespace kr.bbon.Core.Exceptions
 {
     /// <summary>
     /// Represent situation that can not provide an appropriate response.

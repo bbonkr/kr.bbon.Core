@@ -5,9 +5,13 @@ VisualStudioVersion = 17.0.31410.414
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "kr.bbon.Core", "src\kr.bbon.Core\kr.bbon.Core.csproj", "{B2A3E066-B65E-4E4E-95A3-C2FB88E61D80}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "kr.bbon.Core.Tests", "src\kr.bbon.Core.Tests\kr.bbon.Core.Tests.csproj", "{4F8EBC35-E0BB-4C41-A4A4-5A4CE672FB2F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "kr.bbon.Core.Tests", "src\kr.bbon.Core.Tests\kr.bbon.Core.Tests.csproj", "{4F8EBC35-E0BB-4C41-A4A4-5A4CE672FB2F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Example", "src\Example\Example.csproj", "{E1239D9A-773D-44D3-9772-A61E6D275AB2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Example", "src\Example\Example.csproj", "{E1239D9A-773D-44D3-9772-A61E6D275AB2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{E8DDCFFC-DBEA-477F-96A6-53500F7B27E9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Examples", "Examples", "{F322890D-76E1-49A4-89C2-D6C4A95FBBBC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -58,6 +62,10 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{4F8EBC35-E0BB-4C41-A4A4-5A4CE672FB2F} = {E8DDCFFC-DBEA-477F-96A6-53500F7B27E9}
+		{E1239D9A-773D-44D3-9772-A61E6D275AB2} = {F322890D-76E1-49A4-89C2-D6C4A95FBBBC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {95BF2839-2562-4FE3-9055-C10E8F1C5D60}
