@@ -17,7 +17,7 @@ public class TimeZoneHelperTests
     public void ShouldBeFoundTimeZoneWithIanaId()
     {
         var timeZoneId = "Asia/Seoul";
-        var standardName = OperatingSystem.IsWindows() ? "Korea Standard Time" : "Asia/Seoul";
+        var standardName = "Korea Standard Time"; //OperatingSystem.IsWindows() ? "Korea Standard Time" : "Asia/Seoul";
 
         TimeZoneHelper helper = new TimeZoneHelper();
         var timeZoneInfo = helper.FindSystemTimeZoneById(timeZoneId);
@@ -30,7 +30,7 @@ public class TimeZoneHelperTests
     public void ShouldBeFoundTimeZoneWithWindowsTimeZoneId()
     {
         var timeZoneId = "Korea Standard Time";
-        var standardName = OperatingSystem.IsWindows() ? "Korea Standard Time" : "Asia/Seoul";
+        var standardName = "Korea Standard Time"; //OperatingSystem.IsWindows() ? "Korea Standard Time" : "Asia/Seoul";
 
         TimeZoneHelper helper = new TimeZoneHelper();
         var timeZoneInfo = helper.FindSystemTimeZoneById(timeZoneId);
