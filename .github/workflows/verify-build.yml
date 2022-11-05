@@ -26,6 +26,14 @@ jobs:
       - name: Build
         run: dotnet build --no-restore
 
+      - name: Test
+        run: dotnet test --no-build --verbosity normal        
+
+  reporting:
+    name: 'Reporing'
+    needs: [verify-build]
+    runs-on: ubuntu-latest
+    steps:
       - name: Add comment 
         uses: unsplash/comment-on-pr@v1.3.0
         env:
@@ -53,4 +61,4 @@ jobs:
           webhook_url: ${{ secrets.MSTEAMS_WEBHOOK }}
           needs: ${{ toJson(needs) }}
           job: ${{ toJson(job) }}
-          steps: ${{ toJson(steps) }}          
+          steps: ${{ toJson(steps) }}      
