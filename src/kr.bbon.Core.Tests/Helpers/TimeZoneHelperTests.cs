@@ -17,26 +17,26 @@ public class TimeZoneHelperTests
     public void ShouldBeFoundTimeZoneWithIanaId()
     {
         var timeZoneId = "Asia/Seoul";
-        var standardName = "Korea Standard Time"; //OperatingSystem.IsWindows() ? "Korea Standard Time" : "Asia/Seoul";
+        var expectedTimeZoneId = OperatingSystem.IsWindows() ? "Korea Standard Time" : "Asia/Seoul";
 
         TimeZoneHelper helper = new TimeZoneHelper();
         var timeZoneInfo = helper.FindSystemTimeZoneById(timeZoneId);
 
         Assert.NotNull(timeZoneInfo);
-        Assert.Equal(standardName, timeZoneInfo.StandardName);
+        Assert.Equal(expectedTimeZoneId, timeZoneInfo.Id);
     }
 
     [Fact(DisplayName ="Should be found time zone with windows time zone id")]
     public void ShouldBeFoundTimeZoneWithWindowsTimeZoneId()
     {
         var timeZoneId = "Korea Standard Time";
-        var standardName = "Korea Standard Time"; //OperatingSystem.IsWindows() ? "Korea Standard Time" : "Asia/Seoul";
+        var expectedTimeZoneId = OperatingSystem.IsWindows() ? "Korea Standard Time" : "Asia/Seoul";
 
         TimeZoneHelper helper = new TimeZoneHelper();
         var timeZoneInfo = helper.FindSystemTimeZoneById(timeZoneId);
 
         Assert.NotNull(timeZoneInfo);
-        Assert.Equal(standardName, timeZoneInfo.StandardName);
+        Assert.Equal(expectedTimeZoneId, timeZoneInfo.Id);
     }
 
     [Fact(DisplayName ="Should not be found time zone with invalid Iana id")]
