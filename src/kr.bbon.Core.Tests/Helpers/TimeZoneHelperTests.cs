@@ -9,55 +9,57 @@ using kr.bbon.Core.Helpers;
 
 using Xunit;
 
-namespace kr.bbon.Core.Tests.Helpers;
-
-public class TimeZoneHelperTests
+namespace kr.bbon.Core.Tests.Helpers
 {
-    [Fact(DisplayName ="Should be found time zone with Iana Id")]
-    public void ShouldBeFoundTimeZoneWithIanaId()
+
+    public class TimeZoneHelperTests
     {
-        var timeZoneId = "Asia/Seoul";
-        var expectedTimeZoneId = OperatingSystem.IsWindows() ? "Korea Standard Time" : "Asia/Seoul";
+        [Fact(DisplayName = "Should be found time zone with Iana Id")]
+        public void ShouldBeFoundTimeZoneWithIanaId()
+        {
+            var timeZoneId = "Asia/Seoul";
+            var expectedTimeZoneId = OperatingSystem.IsWindows() ? "Korea Standard Time" : "Asia/Seoul";
 
-        TimeZoneHelper helper = new TimeZoneHelper();
-        var timeZoneInfo = helper.FindSystemTimeZoneById(timeZoneId);
+            TimeZoneHelper helper = new TimeZoneHelper();
+            var timeZoneInfo = helper.FindSystemTimeZoneById(timeZoneId);
 
-        Assert.NotNull(timeZoneInfo);
-        Assert.Equal(expectedTimeZoneId, timeZoneInfo.Id);
-    }
+            Assert.NotNull(timeZoneInfo);
+            Assert.Equal(expectedTimeZoneId, timeZoneInfo.Id);
+        }
 
-    [Fact(DisplayName ="Should be found time zone with windows time zone id")]
-    public void ShouldBeFoundTimeZoneWithWindowsTimeZoneId()
-    {
-        var timeZoneId = "Korea Standard Time";
-        var expectedTimeZoneId = OperatingSystem.IsWindows() ? "Korea Standard Time" : "Asia/Seoul";
+        [Fact(DisplayName = "Should be found time zone with windows time zone id")]
+        public void ShouldBeFoundTimeZoneWithWindowsTimeZoneId()
+        {
+            var timeZoneId = "Korea Standard Time";
+            var expectedTimeZoneId = OperatingSystem.IsWindows() ? "Korea Standard Time" : "Asia/Seoul";
 
-        TimeZoneHelper helper = new TimeZoneHelper();
-        var timeZoneInfo = helper.FindSystemTimeZoneById(timeZoneId);
+            TimeZoneHelper helper = new TimeZoneHelper();
+            var timeZoneInfo = helper.FindSystemTimeZoneById(timeZoneId);
 
-        Assert.NotNull(timeZoneInfo);
-        Assert.Equal(expectedTimeZoneId, timeZoneInfo.Id);
-    }
+            Assert.NotNull(timeZoneInfo);
+            Assert.Equal(expectedTimeZoneId, timeZoneInfo.Id);
+        }
 
-    [Fact(DisplayName ="Should not be found time zone with invalid Iana id")]
-    public void ShouldNotBeFoundTimeZoneWithIanaId()
-    {
-        var timeZoneId = "asia/busan";
+        [Fact(DisplayName = "Should not be found time zone with invalid Iana id")]
+        public void ShouldNotBeFoundTimeZoneWithIanaId()
+        {
+            var timeZoneId = "asia/busan";
 
-        TimeZoneHelper helper = new TimeZoneHelper();
-        var timeZoneInfo = helper.FindSystemTimeZoneById(timeZoneId);
+            TimeZoneHelper helper = new TimeZoneHelper();
+            var timeZoneInfo = helper.FindSystemTimeZoneById(timeZoneId);
 
-        Assert.Null(timeZoneInfo);
-    }
+            Assert.Null(timeZoneInfo);
+        }
 
-    [Fact(DisplayName = "Should not be found time zone with invalid windows time zone id")]
-    public void ShouldNotBeFoundTimeZoneWithWindowsTimeZoneId()
-    {
-        var timeZoneId = "korea standard tim";
+        [Fact(DisplayName = "Should not be found time zone with invalid windows time zone id")]
+        public void ShouldNotBeFoundTimeZoneWithWindowsTimeZoneId()
+        {
+            var timeZoneId = "korea standard tim";
 
-        TimeZoneHelper helper = new TimeZoneHelper();
-        var timeZoneInfo = helper.FindSystemTimeZoneById(timeZoneId);
+            TimeZoneHelper helper = new TimeZoneHelper();
+            var timeZoneInfo = helper.FindSystemTimeZoneById(timeZoneId);
 
-        Assert.Null(timeZoneInfo);
+            Assert.Null(timeZoneInfo);
+        }
     }
 }
