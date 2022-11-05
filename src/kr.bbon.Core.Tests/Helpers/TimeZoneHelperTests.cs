@@ -42,7 +42,7 @@ public class TimeZoneHelperTests
     [Fact(DisplayName ="Should not be found time zone with invalid Iana id")]
     public void ShouldNotBeFoundTimeZoneWithIanaId()
     {
-        var timeZoneId = "asia/seoul";
+        var timeZoneId = "asia/busan";
 
         TimeZoneHelper helper = new TimeZoneHelper();
         var timeZoneInfo = helper.FindSystemTimeZoneById(timeZoneId);

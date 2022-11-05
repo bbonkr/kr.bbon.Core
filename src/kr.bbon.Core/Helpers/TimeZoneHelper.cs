@@ -1,4 +1,7 @@
 ﻿using System;
+
+using TimeZoneConverter;
+
 namespace kr.bbon.Core.Helpers
 {
     public class TimeZoneHelper
@@ -10,7 +13,6 @@ namespace kr.bbon.Core.Helpers
         /// <para>Find the time zone with the timezoneId argument.</para>
         /// <para>Convert Iana id to Windows time zone id on  windows.</para>
         /// <para>Convert Windows time zone id to Iana id on Linux or unix.</para>
-        /// <para>Caution: .NET 6 or greater is required. Does not support .NET Standard 2.0, .NET 5</para>
         /// </remarks>
         /// <param name="timeZoneId"></param>
         /// <param name="throwsExceptionWhenTimeZoneInfoNotFound"></param>
@@ -27,30 +29,13 @@ namespace kr.bbon.Core.Helpers
             TimeZoneInfo timeZoneInfo = null;
             try
             {
-                timeZoneInfo = TimeZoneInfo.FindSystemTimeZoneById(timeZoneId);
+                timeZoneInfo = TZConvert.GetTimeZoneInfo(timeZoneId);
             }
-            catch
+            catch 
             {
-
-#if NET6_0_OR_GREATER
-                if (OperatingSystem.IsWindows())
-                {
-                    if (TimeZoneInfo.TryConvertIanaIdToWindowsId(timeZoneId, out string windowsId))
-                    {
-                        timeZoneInfo = TimeZoneInfo.FindSystemTimeZoneById(windowsId);
-                    }
-                }
-                else
-                {
-                    if (TimeZoneInfo.TryConvertWindowsIdToIanaId(timeZoneId, out string ianaId))
-                    {
-                        timeZoneInfo = TimeZoneInfo.FindSystemTimeZoneById(ianaId);
-                    }
-                }
-#endif
                 if (timeZoneInfo == null && throwsExceptionWhenTimeZoneInfoNotFound)
                 {
-                    throw new InvalidTimeZoneException();
+                    throw;
                 }
             }
 
