@@ -1,10 +1,10 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
 		<TargetFrameworks>netstandard2.0;net5.0;net6.0</TargetFrameworks>
 		<PackageId>kr.bbon.Core</PackageId>
 		<Title>kr.bbon.Core</Title>
-		<Version>1.4.7</Version>
+		<Version>1.4.8</Version>
 		<Authors>Pon Cheol Ku (bbon@live.com)</Authors>
 		<Company>bbon.kr</Company>
 		<Copyright>bbon.kr. All rights reserved.</Copyright>
@@ -26,5 +26,8 @@
 			<ExcludeAssets>contentFiles</ExcludeAssets>
 			<PrivateAssets>contentFiles;analyzers</PrivateAssets>
 		</PackageReference>
+	</ItemGroup>
+	<ItemGroup>
+	  <PackageReference Include="TimeZoneConverter" Version="6.0.1" />
 	</ItemGroup>
 </Project>
