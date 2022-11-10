@@ -4,7 +4,7 @@
 		<TargetFrameworks>netstandard2.0;netstandard2.1;net5.0;net6.0</TargetFrameworks>
 		<PackageId>kr.bbon.Core</PackageId>
 		<Title>kr.bbon.Core</Title>
-		<Version>1.4.9</Version>
+		<Version>1.4.10</Version>
 		<Authors>Pon Cheol Ku (bbon@live.com)</Authors>
 		<Company>bbon.kr</Company>
 		<Copyright>bbon.kr. All rights reserved.</Copyright>
@@ -27,14 +27,14 @@
 			<PrivateAssets>contentFiles;analyzers</PrivateAssets>
 		</PackageReference>
 	</ItemGroup>
-    <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.1'">
-        <PackageReference Include="System.Text.Json" Version="6.*">
-            <IncludeAssets>all</IncludeAssets>
-            <ExcludeAssets>contentFiles</ExcludeAssets>
-            <PrivateAssets>contentFiles;analyzers</PrivateAssets>
-        </PackageReference>
-    </ItemGroup>
+	<ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.1'">
+		<PackageReference Include="System.Text.Json" Version="6.*">
+			<IncludeAssets>all</IncludeAssets>
+			<ExcludeAssets>contentFiles</ExcludeAssets>
+			<PrivateAssets>contentFiles;analyzers</PrivateAssets>
+		</PackageReference>
+	</ItemGroup>
 	<ItemGroup>
-	  <PackageReference Include="TimeZoneConverter" Version="6.0.1" />
+		<PackageReference Include="TimeZoneConverter" Version="6.0.1" />
 	</ItemGroup>
 </Project>
