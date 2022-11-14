@@ -21,14 +21,14 @@
 		<None Include="../../README.md" Pack="true" PackagePath="/" />
 	</ItemGroup>
 	<ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
-		<PackageReference Include="System.Text.Json" Version="6.*">
+		<PackageReference Include="System.Text.Json" Version="7.*">
 			<IncludeAssets>all</IncludeAssets>
 			<ExcludeAssets>contentFiles</ExcludeAssets>
 			<PrivateAssets>contentFiles;analyzers</PrivateAssets>
 		</PackageReference>
 	</ItemGroup>
 	<ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.1'">
-		<PackageReference Include="System.Text.Json" Version="6.*">
+		<PackageReference Include="System.Text.Json" Version="7.*">
 			<IncludeAssets>all</IncludeAssets>
 			<ExcludeAssets>contentFiles</ExcludeAssets>
 			<PrivateAssets>contentFiles;analyzers</PrivateAssets>
