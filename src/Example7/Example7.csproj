@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<OutputType>Exe</OutputType>
+		<TargetFramework>net7.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<AssemblyName>Example</AssemblyName>
+	</PropertyGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\kr.bbon.Core\kr.bbon.Core.csproj" />
+	</ItemGroup>
+	<ItemGroup>
+		<Compile Include="..\Example\PagedModelExample.cs" Link="PagedModelExample.cs" />
+		<Compile Include="..\Example\Program.cs" Link="Program.cs" />
+		<Compile Include="..\Example\Sample.cs" Link="Sample.cs" />
+		<Compile Include="..\Example\Test.cs" Link="Test.cs" />
+		<Compile Include="..\Example\TimeZoneTest.cs" Link="TimeZoneTest.cs" />
+	</ItemGroup>
+</Project>
