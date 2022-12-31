@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Text.Json.Serialization;
 
 namespace kr.bbon.Core.Models
 {
-    public interface IPagedModel<out TModel> where TModel : class
+    public interface IPagedModel<TModel> where TModel : class
     {
         /// <summary>
         /// Current page
@@ -16,7 +13,7 @@ namespace kr.bbon.Core.Models
         /// <summary>
         /// Records
         /// </summary>
-        IEnumerable<TModel> Items { get; }
+        List<TModel> Items { get; }
 
         /// <summary>
         /// Items count per page
@@ -73,7 +70,7 @@ namespace kr.bbon.Core.Models
             Limit = limit;
             TotalItems = totalItems;
             TotalPages = totalPages;
-            Items = items ?? Enumerable.Empty<TModel>();
+            Items = new List<TModel>(items ?? Enumerable.Empty<TModel>());
 
             HasNextPage = CurrentPage < TotalPages;
             HasPreviousPage = CurrentPage > 1;
@@ -123,7 +120,7 @@ namespace kr.bbon.Core.Models
         }
 
         /// <inheritdoc />
-        public IEnumerable<TModel> Items
+        public List<TModel> Items
         {
             get;
             //#if NET5_0_OR_GREATER
