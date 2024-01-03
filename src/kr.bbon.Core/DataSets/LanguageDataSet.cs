@@ -28,7 +28,8 @@ namespace kr.bbon.Core.DataSets
             var currentAssembly = GetType().Assembly;
             var resourceName = currentAssembly
                 .GetManifestResourceNames()
-                .FirstOrDefault(name => name.EndsWith(RESOURCE_NAME));
+                .Where(name => name.EndsWith(RESOURCE_NAME))
+                .FirstOrDefault();
 
             string jsonData = null;
             if (!string.IsNullOrWhiteSpace(resourceName))

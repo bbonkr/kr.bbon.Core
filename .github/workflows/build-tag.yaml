@@ -7,7 +7,8 @@ on:
 env:
   TARGET_PROJECT_PATH: src/kr.bbon.Core/
   TARGET_PROJECT_FILE: kr.bbon.Core.csproj
-
+  DOTNET_VERSION: 8.0.x
+  
 jobs:
   # build job
   build:
@@ -18,12 +19,12 @@ jobs:
         os: [ubuntu-latest, windows-latest]
     steps:
       - name: Checkout 
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Setup dotnet
         uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: 7.0.x
+          dotnet-version: ${{ env.DOTNET_VERSION }}
 
       - name: Restore dependencies
         run: dotnet restore
@@ -42,16 +43,16 @@ jobs:
     steps:
 
       - name: Checkout 
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       
       - name: Get version 
-        uses: bbonkr/get-version-action@v1.0.1
+        uses: bbonkr/get-version-action@v1
         id: get_version
         with:
           project: "${{ env.TARGET_PROJECT_PATH }}${{ env.TARGET_PROJECT_FILE }}"
 
       - name: Check git tag 
-        uses: bbonkr/git-tag-check-action@v1.0.9
+        uses: bbonkr/git-tag-check-action@v1
         id: git_tag_check
         with:
           github_token: ${{ secrets.GH_TOKEN }}
@@ -89,12 +90,3 @@ jobs:
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
           MATRIX_CONTEXT:  ${{ toJson(matrix) }}
-
-      - name: Notify to Microsoft Teams
-        uses: skitionek/notify-microsoft-teams@master
-        if: always()
-        with:
-          webhook_url: ${{ secrets.MSTEAMS_WEBHOOK }}
-          needs: ${{ toJson(needs) }}
-          job: ${{ toJson(job) }}
-          steps: ${{ toJson(steps) }}    
