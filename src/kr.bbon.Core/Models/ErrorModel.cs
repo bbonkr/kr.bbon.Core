@@ -6,13 +6,6 @@ namespace kr.bbon.Core.Models
 {
     public class ErrorModel
     {
-        //#if NET5_0_OR_GREATER
-        //        private ErrorModel()
-        //        {
-
-        //        }
-        //#else
-        //#endif
         public ErrorModel()
         {
 
@@ -23,7 +16,7 @@ namespace kr.bbon.Core.Models
             this.Message = Message;
             this.Code = Code;
             this.Reference = Reference;
-            this.InnerErrors = InnerErrors;
+            this.InnerErrors = InnerErrors ?? Enumerable.Empty<ErrorModel>();
         }
 
         public string Message { get; set; }
@@ -32,7 +25,7 @@ namespace kr.bbon.Core.Models
 
         public string Reference { get; set; }
 
-        public IEnumerable<ErrorModel> InnerErrors { get; set; } = Enumerable.Empty<ErrorModel>();
+        public IEnumerable<ErrorModel> InnerErrors { get; set; }
     }
 }
 
